@@ -1,15 +1,15 @@
-import { Icon, HStack } from '@chakra-ui/react';
-import { 
-    RiNotificationLine, 
-    RiUserAddLine, 
-} from 'react-icons/ri';
+import { Icon, HStack } from '@chakra-ui/react'
+import {
+  RiNotificationLine,
+  RiUserAddLine
+} from 'react-icons/ri'
 
-export function NotificationsNav() {
-    return (
+export function NotificationsNav () {
+  return (
       <HStack
-        spacing={["6", "8"]}
-        mx={["6", "8"]}
-        pr={["6", "8"]}
+        spacing={['6', '8']}
+        mx={['6', '8']}
+        pr={['6', '8']}
         py="1"
         color="gray.300"
         borderRightWidth={1}
@@ -18,5 +18,5 @@ export function NotificationsNav() {
         <Icon as={RiNotificationLine} fontSize="20" />
         <Icon as={RiUserAddLine} fontSize="20" />
       </HStack>
-    );
+  )
 }

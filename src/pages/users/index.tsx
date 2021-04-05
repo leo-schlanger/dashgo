@@ -1,32 +1,32 @@
-import { 
-  Box, 
-  Button, 
-  Checkbox, 
-  Flex, 
-  Heading, 
-  Icon, 
-  Link, 
-  Table, 
-  Tbody, 
-  Td, 
-  Text, 
-  Th, 
-  Thead, 
-  Tr, 
-  useBreakpointValue 
-} from "@chakra-ui/react";
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
-import { Header } from "../../components/Header";
-import { Pagination } from "../../components/Pagination";
-import { Sidebar } from "../../components/Sidebar";
+import {
+  Box,
+  Button,
+  Checkbox,
+  Flex,
+  Heading,
+  Icon,
+  Link,
+  Table,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+  useBreakpointValue
+} from '@chakra-ui/react'
+import { RiAddLine, RiPencilLine } from 'react-icons/ri'
+import { Header } from '../../components/Header'
+import { Pagination } from '../../components/Pagination'
+import { Sidebar } from '../../components/Sidebar'
 
-export default function userLists() {
+export default function userLists () {
   const isWideVersion = useBreakpointValue({
     base: false,
-    lg: true,
-  });
+    lg: true
+  })
 
-  return(
+  return (
     <Box>
       <Header />
       <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6" >
@@ -53,7 +53,7 @@ export default function userLists() {
           <Table colorScheme="whiteAlpha">
             <Thead>
               <Tr>
-                <Th px={["4", "4", "6"]} color="gray.300" width="8">
+                <Th px={['4', '4', '6']} color="gray.300" width="8">
                   <Checkbox colorScheme="pink" />
                 </Th>
 
@@ -67,7 +67,7 @@ export default function userLists() {
             </Thead>
               <Tbody>
                 <Tr>
-                  <Td px={["4", "4", "6"]}>
+                  <Td px={['4', '4', '6']}>
                     <Checkbox colorScheme="pink" />
                   </Td>
                   <Td>
@@ -98,5 +98,5 @@ export default function userLists() {
           </Box>
       </Flex>
     </Box>
-  );
+  )
 }

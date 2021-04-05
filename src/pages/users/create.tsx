@@ -1,8 +1,8 @@
-import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { 
-  Flex, 
+import { SubmitHandler, useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import { yupResolver } from '@hookform/resolvers/yup'
+import {
+  Flex,
   Box,
   Heading,
   Divider,
@@ -11,11 +11,11 @@ import {
   HStack,
   Button,
   Link
-} from '@chakra-ui/react';
+} from '@chakra-ui/react'
 
-import { Header } from '../../components/Header';
-import { Sidebar } from '../../components/Sidebar';
-import { Input } from '../../components/Form/Input';
+import { Header } from '../../components/Header'
+import { Sidebar } from '../../components/Sidebar'
+import { Input } from '../../components/Form/Input'
 
 type CreateUserFormData = {
   name: string;
@@ -30,22 +30,22 @@ const createUserFormSchema = yup.object({
   password: yup.string().required('Senha obrigatória').min(6, 'No mínimo 6 caracteres'),
   password_confirmation: yup.string().oneOf([
     null, yup.ref('password')
-  ], 'As senhas precisam ser iguais'),
-});
+  ], 'As senhas precisam ser iguais')
+})
 
-export default function UserCreate() {
+export default function UserCreate () {
   const {
     register,
     handleSubmit,
     formState,
-    formState: { errors },
-    } = useForm<CreateUserFormData>({
-    resolver: yupResolver(createUserFormSchema),
-    });
+    formState: { errors }
+  } = useForm<CreateUserFormData>({
+    resolver: yupResolver(createUserFormSchema)
+  })
 
   const handleCreateUser:SubmitHandler<CreateUserFormData> = async (data, event) => {
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log(data);
+    await new Promise(resolve => setTimeout(resolve, 2000))
+    console.log(data)
   }
 
   return (
@@ -54,24 +54,24 @@ export default function UserCreate() {
         <Flex w="100%" my="6" maxWidth={1480} mx="auto" px="6">
         <Sidebar />
 
-        <Box 
-          as="form" 
-          flex="1" 
-          borderRadius="8" 
-          bg="gray.800" 
-          p={["6", "8"]}
+        <Box
+          as="form"
+          flex="1"
+          borderRadius="8"
+          bg="gray.800"
+          p={['6', '8']}
           onSubmit={handleSubmit(handleCreateUser)}
         >
           <Heading size="lg" fontWeight="normal">Criar usuário</Heading>
 
           <Divider my="6" borderColor="gray.700" />
             <VStack spacing="8">
-              <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
+              <SimpleGrid minChildWidth="240px" spacing={['6', '8']} w="100%">
                 <Input
                   name="name"
                   label="Nome completo"
                   error={errors.name}
-                  {...register("name", { required: true })}
+                  {...register('name', { required: true })}
                 />
 
                 <Input
@@ -79,17 +79,17 @@ export default function UserCreate() {
                   type="email"
                   label="E-mail"
                   error={errors.email}
-                  {...register("email", { required: true })}
+                  {...register('email', { required: true })}
                 />
               </SimpleGrid>
 
-              <SimpleGrid minChildWidth="240px" spacing={["6", "8"]} w="100%">
+              <SimpleGrid minChildWidth="240px" spacing={['6', '8']} w="100%">
                 <Input
                   name="password"
                   type="password"
                   label="Senha"
                   error={errors.password}
-                  {...register("password", { required: true })}
+                  {...register('password', { required: true })}
                 />
 
                 <Input
@@ -97,7 +97,7 @@ export default function UserCreate() {
                   type="password"
                   label="Confirmação da senha"
                   error={errors.password_confirmation}
-                  {...register("password_confirmation", { required: true })}
+                  {...register('password_confirmation', { required: true })}
                 />
               </SimpleGrid>
             </VStack>
@@ -119,5 +119,5 @@ export default function UserCreate() {
           </Box>
       </Flex>
     </Box>
-  );
+  )
 }
