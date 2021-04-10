@@ -6,7 +6,7 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "standard"
+        "airbnb"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -21,8 +21,35 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "camelcase":"off",
-        "react/prop-types": "off",
-        "react/react-in-jsx-scope": "off"
+        "camelcase": "off",
+        "import/no-unresolved": "error",
+        "react/jsx-props-no-spreading": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+        "react/react-in-jsx-scope": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": ["module", "/^@/", ["parent", "sibling", "index"]],
+                "alphabetize": { "order": "asc", "ignoreCase": true }
+            }
+        ],
+        "import/no-extraneous-dependencies": [
+            "error",
+            { "devDependencies": ["**/*.spec.js"] }
+        ],
+        "settings": {
+            "import/resolver": {
+              "typescript": {}
+            }
+        }
     }
 }
